@@ -1,0 +1,54 @@
+.page-container{
+    padding: 5px 0px;
+
+}
+/* Styles for wrapping the search box */
+
+.search-field-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color:maroon;
+    padding:1%
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.product-col{
+    margin-top: 20px;
+}
+.product-container{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.product-image-container{
+    width: 250px;
+}
+.product-image-container img{
+    height: 190px;
+    border-radius: 5px;
+}
+.text-small{
+    font-size: 12px;
+}
+.product-description-container{
+    line-height: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.price{
+    font-weight: 500;
+}
+.pagination-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    overflow-x: scroll;
+}
+.pagination-container ul li a{
+    background-color: rgb(83, 83, 83) !important;
+    color: white;
+}

@@ -1,0 +1,6 @@
+#files that are going to be ignored by git hub
+
+.vscode
+vscode/
+db.sqlite3
+.gitignore

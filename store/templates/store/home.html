@@ -1,0 +1,128 @@
+{% extends 'store/base.html' %}
+{% block content %}
+{% load static %}
+<div class=" bg-image ">
+    <div class="page-container">
+        <div class="headerStyle">
+            <div class="p-2 flex-fill">
+                <a href="{% url 'home' %}"> <img src="https://i.ibb.co/VJnGNrq/logo.png" alt="logo"
+                        class="LogoImage"></a>
+            </div>
+            <!--/Search Field-->
+            <div class="search-field-container flex-fill">
+                <div class="input-group">
+                    <input type="text" id="sq" name="q" class="form-control" maxlength="30"
+                        placeholder="Search Product">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" id="searchbtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row " style="margin:0px 40px">
+            {% for product in short_product_list %}
+            <div class="col-md-2 product-col">
+                <div class="product-container">
+                    <div class="product-image-container">
+                        <img src="{{product.5}}" alt="image">
+                    </div>
+                    <!--product-image-container-->
+                    <div class="product-description-container">
+                        <h6>{{product.0|slice:"0:35"}}</h6>
+                        <p class="text-small">Brand: <strong>{{product.1}}</strong></p>
+                        <p class="text-small">Category: <strong>{{product.2|slice:"0:18"}}</strong></p>
+                        {% comment %} <p class="text-small">Rating: <strong>{{product.7}}</strong></p> {% endcomment %}
+                        <p class="text-small">Rating: <strong>{% if product.7 == '0' %} Not Yet Rated {% else %}
+                                {{product.7}} {% endif %}</strong></p>
+                        <!-- <p style="line-height: 20px;">Description: {{product.8|slice:"0:40"}}...</p> -->
+                        <p class="text-success price">{{product.6}}</p>
+                        <p><a href="{{product.4}}" target="_blank" class="btn btn-primary btn-lg">{{product.10}}</a></p>
+                    </div>
+                    <!--/product-description-container-->
+                </div>
+                <!--/product-container-->
+            </div>
+            {% endfor %}
+        </div>
+        <!--/row-->
+
+        <div class="pagination-container">
+            <ul class="pagination">
+                {% for i in pages_range %}
+                <button class="page-item">
+                    <a class="page-link" style="border-radius:5px; margin-left:2;transition: background-color .3s; "
+                        href="{% url 'CurrentPage' i|add:1 %}">{{i|add:1}}</a>
+                </button>
+                {% endfor %}
+            </ul>
+        </div>
+        <!--/pagination-container-->
+
+
+
+
+    </div>
+    <!--/page-container-->
+    <footer class="text-center text-white footer" >
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!-- Section: Images -->
+            <div class="row bottomStyle">
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+
+
+                    <a href="https://www.daraz.pk">
+                        <img class="Image"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Daraz_logo_color.png/120px-Daraz_logo_color.png"
+                            class="w-100" />
+                    </a>
+
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+
+
+                    <a href="https://www.ishopping.pk">
+                        <img class="Image" src="https://i.ibb.co/FmWzC2Q/download-1-removebg-preview.png"
+                            alt="download-1-removebg-preview" border="0">
+                    </a>
+
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+
+
+                    <a href="https://www.omegawatches.com">
+                        <img class="Image" src="https://i.ibb.co/MRs1zSR/download-removebg-preview.png"
+                            alt="download-removebg-preview" border="0">
+                    </a>
+                </div>
+
+            </div>
+            <!-- Section: Images -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            © 2021 Copyright:
+            <a class="text-white" href="{% url 'home' %}">One Cart for all</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+{% endblock content %}
+<!-- <script>
+    $('#demo').pagination({
+    dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 15],
+    pageSize: 5,
+    showNavigator: true,
+    formatNavigator: '<span style="color: #f00"><%= currentPage %></span> st/rd/th, <%= totalPage %> pages, <%= totalNumber %> entries',
+    position: 'top',
+    callback: function(data, pagination) {
+        // template method of yourself
+        var html = template(data);
+        dataContainer.html(html);
+    }
+})
+</script> -->
